@@ -6,13 +6,13 @@ import './colors.dart';
 ////////////////////////////////
 
 const logoStyle = TextStyle(
-    fontFamily: 'fryo',
+    fontFamily: 'Pacifico',
     fontSize: 30,
     color: Colors.black54,
     letterSpacing: 2);
 
 const logoWhiteStyle = TextStyle(
-    fontFamily: 'fryo',
+    fontFamily: 'Pacifico',
     fontSize: 21,
     letterSpacing: 2,
     color: Colors.white);

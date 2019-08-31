@@ -91,12 +91,13 @@ flutter:
         - asset: fonts/Poppins-Medium.ttf
         - asset: fonts/Poppins-Bold.ttf
           weight: 700
-    - family: fryo
+    - family: Pacifico
       fonts:
-        - asset: fonts/fryo.ttf
+        - asset: fonts/Pacifico.ttf
     - family: Fryo
       fonts:
         - asset: fonts/Fryo.ttf
+
 
         
   # For details regarding fonts from package dependencies,
