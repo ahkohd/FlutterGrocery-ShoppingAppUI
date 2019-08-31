@@ -13,7 +13,7 @@ Don't forget to star⭐ the repo if you like what you see😉.
 ![demo](./fryo.gif)
 
 # 📸 Screenshots
-The screenshots below are taken on an anroid emulator.
+The screenshots below are taken on a android emulator.
 
 | 1 | 2|
 |------|-------|
