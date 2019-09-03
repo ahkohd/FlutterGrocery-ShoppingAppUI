@@ -4,7 +4,7 @@ A Flutter UI template of a Grocery Shopping Full App I found on Uplabs.
 
 Design screens are on [Uplabs.](https://www.uplabs.com/posts/grocery-shopping-full-app) It's premium, purchase it if you want to use it commercially.
 
-> **Disclaimer:** I am not in anyway in affliate with the designer of the screens. I just love the UI and decided to code it in Flutter😽
+> **Disclaimer:** I am not in anyway in affiliate with the designer of the screens. I just love the UI and decided to code it in Flutter😽
 
 <a href="./app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
@@ -53,4 +53,4 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 # LICENSE
-[WTFPL](./LICENSE.md)
+[MIT](./LICENSE.md)
