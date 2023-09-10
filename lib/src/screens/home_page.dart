@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+
 import '../shared/styles.dart';
 import '../shared/colors.dart';
 import '../shared/buttons.dart';
-
-import 'package:page_transition/page_transition.dart';
-import './SignUpPage.dart';
-import './SignInPage.dart';
+import './singup_page.dart';
+import './signin_page.dart';
 
 class HomePage extends StatefulWidget {
   final String pageTitle;
 
-  HomePage({Key key, this.pageTitle}) : super(key: key);
+  const HomePage({required this.pageTitle});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushReplacement(
                   context,
                   PageTransition(
+                      alignment: Alignment.center,
                       type: PageTransitionType.rotate,
                       duration: Duration(seconds: 1),
                       child: SignInPage()));
@@ -49,6 +50,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushReplacement(
                   context,
                   PageTransition(
+                      alignment: Alignment.center,
                       type: PageTransitionType.rotate,
                       duration: Duration(seconds: 1),
                       child: SignUpPage()));

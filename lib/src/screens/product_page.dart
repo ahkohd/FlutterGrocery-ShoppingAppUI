@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import '../shared/product.dart';
 import '../shared/styles.dart';
 import '../shared/colors.dart';
 import '../shared/partials.dart';
 import '../shared/buttons.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProductPage extends StatefulWidget {
-  final String pageTitle;
   final Product productData;
 
-  ProductPage({Key key, this.pageTitle, this.productData}) : super(key: key);
+  ProductPage({required this.productData});
 
   @override
-  _ProductPageState createState() => _ProductPageState();
+  ProductPageState createState() => ProductPageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
-  double _rating = 4;
+class ProductPageState extends State<ProductPage> {
   int _quantity = 1;
   @override
   Widget build(BuildContext context) {
@@ -76,9 +75,7 @@ class _ProductPageState extends State<ProductPage> {
                                   color: Colors.orange,
                                 ),
                                 onRatingUpdate: (rating) {
-                                  setState(() {
-                                    _rating = v;
-                                  });
+                                  setState(() {});
                                 },
                               ),
                             ),
@@ -113,7 +110,7 @@ class _ProductPageState extends State<ProductPage> {
                                         child: Text(_quantity.toString(),
                                             style: h3),
                                       ),
-                                      Container(
+                                      SizedBox(
                                         width: 55,
                                         height: 55,
                                         child: OutlinedButton(
@@ -131,11 +128,11 @@ class _ProductPageState extends State<ProductPage> {
                                 ],
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               width: 180,
                               child: froyoOutlinedBtn('Buy Now', () {}),
                             ),
-                            Container(
+                            SizedBox(
                               width: 180,
                               child: froyoTextBtn('Add to Cart', () {}),
                             )

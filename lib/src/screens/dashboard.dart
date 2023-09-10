@@ -1,26 +1,23 @@
 import 'package:flutter/material.dart';
+
 import '../shared/styles.dart';
 import '../shared/colors.dart';
 import '../shared/fryo_icons.dart';
-import './ProductPage.dart';
 import '../shared/product.dart';
 import '../shared/partials.dart';
+import './product_page.dart';
 
 class Dashboard extends StatefulWidget {
-  final String pageTitle;
-
-  Dashboard({Key key, this.pageTitle}) : super(key: key);
-
   @override
-  _DashboardState createState() => _DashboardState();
+  DashboardState createState() => DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class DashboardState extends State<Dashboard> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final _tabs = [
+    final tabs = [
       storeTab(context),
       Text('Tab2'),
       Text('Tab3'),
@@ -56,39 +53,15 @@ class _DashboardState extends State<Dashboard> {
             )
           ],
         ),
-        body: _tabs[_selectedIndex],
+        body: tabs[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Fryo.shop), label: 'Store'),
+            BottomNavigationBarItem(icon: Icon(Fryo.cart), label: 'My Cart'),
             BottomNavigationBarItem(
-                icon: Icon(Fryo.shop),
-                title: Text(
-                  'Store',
-                  style: tabLinkStyle,
-                )),
-            BottomNavigationBarItem(
-                icon: Icon(Fryo.cart),
-                title: Text(
-                  'My Cart',
-                  style: tabLinkStyle,
-                )),
-            BottomNavigationBarItem(
-                icon: Icon(Fryo.heart_1),
-                title: Text(
-                  'Favourites',
-                  style: tabLinkStyle,
-                )),
-            BottomNavigationBarItem(
-                icon: Icon(Fryo.user_1),
-                title: Text(
-                  'Profile',
-                  style: tabLinkStyle,
-                )),
-            BottomNavigationBarItem(
-                icon: Icon(Fryo.cog_1),
-                title: Text(
-                  'Settings',
-                  style: tabLinkStyle,
-                ))
+                icon: Icon(Fryo.heart_1), label: 'Favourites'),
+            BottomNavigationBarItem(icon: Icon(Fryo.user_1), label: 'Profile'),
+            BottomNavigationBarItem(icon: Icon(Fryo.cog_1), label: 'Settings')
           ],
           currentIndex: _selectedIndex,
           type: BottomNavigationBarType.fixed,
@@ -105,8 +78,7 @@ class _DashboardState extends State<Dashboard> {
 }
 
 Widget storeTab(BuildContext context) {
-  // will pick it up from here
-  // am to start another template
+  // TODO: will pick it up from here, am to start another template
   List<Product> foods = [
     Product(
         name: 'Hamburger',
@@ -168,7 +140,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: foods[0],
               );
             },
@@ -180,7 +152,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: foods[1],
               );
             },
@@ -192,7 +164,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: foods[2],
               );
             },
@@ -204,7 +176,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: foods[3],
               );
             },
@@ -218,7 +190,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: drinks[0],
               );
             },
@@ -230,7 +202,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: drinks[1],
               );
             },
@@ -242,7 +214,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: drinks[2],
               );
             },
@@ -254,7 +226,7 @@ Widget storeTab(BuildContext context) {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return new ProductPage(
+              return ProductPage(
                 productData: drinks[3],
               );
             },
@@ -276,9 +248,9 @@ Widget sectionHeader(String headerTitle, {onViewMore}) {
       ),
       Container(
         margin: EdgeInsets.only(left: 15, top: 2),
-        child: FlatButton(
+        child: TextButton(
           onPressed: onViewMore,
-          child: Text('View all ›', style: contrastText),
+          child: Text('View all >', style: contrastText),
         ),
       )
     ],
@@ -328,13 +300,13 @@ Widget headerCategoryItem(String name, IconData icon, {onPressed}) {
               backgroundColor: white,
               child: Icon(icon, size: 35, color: Colors.black87),
             )),
-        Text(name + ' ›', style: categoryText)
+        Text('$name >', style: categoryText)
       ],
     ),
   );
 }
 
-Widget deals(String dealTitle, {onViewMore, List<Widget> items}) {
+Widget deals(String dealTitle, {onViewMore, List<Widget>? items}) {
   return Container(
     margin: EdgeInsets.only(top: 5),
     child: Column(
@@ -346,17 +318,18 @@ Widget deals(String dealTitle, {onViewMore, List<Widget> items}) {
           height: 250,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: (items != null)
-                ? items
-                : <Widget>[
-                    Container(
-                      margin: EdgeInsets.only(left: 15),
-                      child: Text('No items available at this moment.',
-                          style: taglineText),
-                    )
-                  ],
+            children: items ??
+                [
+                  Container(
+                    margin: EdgeInsets.only(left: 15),
+                    child: Text(
+                      'No items available at this moment.',
+                      style: taglineText,
+                    ),
+                  ),
+                ],
           ),
-        )
+        ),
       ],
     ),
   );

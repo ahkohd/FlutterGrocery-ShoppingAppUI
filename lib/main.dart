@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import './src/screens/SignInPage.dart';
-import './src/screens/SignUpPage.dart';
-import './src/screens/HomePage.dart';
-import './src/screens/Dashboard.dart';
-import './src/screens/ProductPage.dart';
-
-
+import 'src/screens/signin_page.dart';
+import 'src/screens/singup_page.dart';
+import 'src/screens/home_page.dart';
+import 'src/screens/dashboard.dart';
+import 'src/screens/product_page.dart';
+import 'src/shared/product.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,11 +18,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
       ),
       home: HomePage(pageTitle: 'Welcome'),
-      routes: <String, WidgetBuilder> {
-        '/signup': (BuildContext context) =>  SignUpPage(),
-        '/signin': (BuildContext context) =>  SignInPage(),
+      routes: <String, WidgetBuilder>{
+        '/signup': (BuildContext context) => SignUpPage(),
+        '/signin': (BuildContext context) => SignInPage(),
         '/dashboard': (BuildContext context) => Dashboard(),
-        '/productPage': (BuildContext context) => ProductPage(),
+        '/productPage': (BuildContext context) => ProductPage(
+              productData: Product(),
+            ),
       },
     );
   }
