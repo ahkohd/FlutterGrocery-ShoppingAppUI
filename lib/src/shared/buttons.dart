@@ -1,23 +1,30 @@
 import 'package:flutter/material.dart';
 import './colors.dart';
 
-FlatButton froyoFlatBtn(String text, onPressed) {
-  return FlatButton(
+TextButton froyoTextBtn(String text, VoidCallback onPressed) {
+  return TextButton(
     onPressed: onPressed,
+    style: TextButton.styleFrom(
+      foregroundColor: Colors.white,
+      backgroundColor: primaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+    ),
     child: Text(text),
-    textColor: white,
-    color: primaryColor,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
   );
 }
 
-OutlineButton froyoOutlineBtn(String text, onPressed) {
-  return OutlineButton(
+OutlinedButton froyoOutlinedBtn(String text, VoidCallback onPressed) {
+  return OutlinedButton(
     onPressed: onPressed,
+    style: OutlinedButton.styleFrom(
+      side: BorderSide(color: primaryColor),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      foregroundColor: primaryColor,
+    ),
     child: Text(text),
-    textColor: primaryColor,
-    highlightedBorderColor: highlightColor,
-    borderSide: BorderSide(color: primaryColor),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
   );
 }
